@@ -1,0 +1,31 @@
+[Installation for Keras]
+1.[install anaconda+python]
+wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh
+bash Anaconda-2.3.0-Linux-x86_64.sh
+
+2.[config path for conda]
+echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc 
+source .bashrc
+conda update conda
+
+3.[Install lib for speed up]
+sudo apt install -y libopenblas-dev liblapack-dev libatlas-base-dev
+
+4.[Install keras]
+conda install -c conda-forge keras=2.0.2
+
+5.[Install tensorflow backend]
+pip install --upgrade -I setuptools
+pip install --upgrade  pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
+mkdir -p ~/.keras
+echo '{"epsilon":1e-07,"floatx":"float32","backend":"tensorflow"}' > ~/.keras/keras.json
+sudo apt update
+sudo apt upgrade
+sudo apt install -y python-dev python-pip python-nose gcc g++ git gfortran vim
+sudo pip install tensorflow --upgrade
+[>>try pip install tensorflow --upgrade also]
+
+6. Testing
+$python
+>> import tensorflow
+>> import keras
